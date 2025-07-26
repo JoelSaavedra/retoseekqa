@@ -78,20 +78,20 @@ webdriver {
 
 
 ### Configuraciones Específicas para Ambientes
-Podemos configurar nuestro proyecto según ambientes y ordenar las ejecuciones según lo conveniente
+Podemos configurar a futuro nuestro proyecto según ambientes y ordenar las ejecuciones según lo conveniente
 ```json
 environments {
   default {
-    webdriver.base.url = "https://duckduckgo.com"
+    webdriver.base.url = "https://imgbb.com/"
   }
   dev {
-    webdriver.base.url = "https://duckduckgo.com/dev"
+    webdriver.base.url = "https://imgbb-dev.com/"
   }
-  staging {
-    webdriver.base.url = "https://duckduckgo.com/staging"
+  cert {
+    webdriver.base.url = "https://imgbb-cert.com/"
   }
   prod {
-    webdriver.base.url = "https://duckduckgo.com/prod"
+    webdriver.base.url = "https://imgbb.com/"
   }
 }
 ```
