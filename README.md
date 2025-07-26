@@ -11,18 +11,33 @@ src
     + java 
       + web
         + pages
-        + runner
+        + runner                  Test runner
         + stepdefinitions
-        + steps                     Test runners and supporting code
+        + steps                     
     + resources
-      + features                  Feature files
+      + features                  documentos .feature
 ```
 
 ## Ejecución de Pruebas
+Comando para iniciar la ejecución de pruebas
 mvn clean verify
 
 
 ## Generación de Reportes
+El headless.mode permite ejecutar las pruebas en segundo plano sin ver el navegador, por eso lo desactivamos.
+En cada reporte de automatización se visualizarán capturas de pantalla de CADA ACCIÓN ya que se configuró en serenity.conf lo siguiente:
+
+```
+serenity {
+    take.screenshots = FOR_EACH_ACTION
+    screenshots{
+        afterEachStep = true
+    }
+}
+
+headless.mode = false
+```
+En las dependencias debería visualizarse así para poder llamar a los reportes
 ```
              <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
@@ -44,19 +59,11 @@ mvn clean verify
 
 
 Además en el serenity.conf se ha ajustado lo siguiente:
-
-serenity {
-    take.screenshots = FOR_EACH_ACTION
-    screenshots{
-        afterEachStep = true
-    }
-}
-
-headless.mode = false
 ```
 
 
 ## Configuración WebDriver
+Se configuran los capabilites, por default agregamos a chrome como navegador.
 ```java
 webdriver {
   driver = chrome
